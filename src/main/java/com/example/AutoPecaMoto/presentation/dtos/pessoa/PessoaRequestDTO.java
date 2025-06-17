@@ -18,16 +18,16 @@ public class PessoaRequestDTO {
     @NotBlank(message = "Informe o campo lagradouro.")
     private String nome ;
 
-    @NotBlank(message = "Informe o campo lagradouro.")
+    @NotBlank(message = "Informe o campo cpf.")
 	private String cpf ;
 
-   @NotBlank(message = "Informe o campo lagradouro.")
+   @NotBlank(message = "Informe o campo tipo.")
 	private String tipo;
 
-    @NotBlank(message = "Informe o campo lagradouro.") 
+      
 	private LocalDate data_cadastro;
 
-    @NotBlank(message = "Informe o campo lagradouro.")
+    @NotBlank(message = "Informe o campo email.")
 	private String email ;
 
     @Valid

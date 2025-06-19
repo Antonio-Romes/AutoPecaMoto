@@ -5,10 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.example.AutoPecaMoto.domain.entities.Pessoa;
-import com.example.AutoPecaMoto.domain.repositories.pessoa.IPessoaRepository;
-import com.example.AutoPecaMoto.infrastructure.mappers.pessoa.PessoaMapper;
-
-import jakarta.persistence.EntityNotFoundException;
+import com.example.AutoPecaMoto.domain.exeptions.HandlerNotFoundException;
+import com.example.AutoPecaMoto.domain.repositories.pessoa.IPessoaRepository; 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -29,7 +27,7 @@ public class PessoaRepository implements IPessoaRepository {
     @Override
     public Pessoa getById(Long id) {
        return pessoaRepositoryJPA.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Pessoa não encontrada com id: " + id));
+                .orElseThrow(() -> new HandlerNotFoundException(String.format("Cliente id = %s não encontrado no sistema", id)));
  
     }
 
@@ -37,7 +35,7 @@ public class PessoaRepository implements IPessoaRepository {
     public Pessoa update(Long id, Pessoa pessoa) {
         
        if(!pessoaRepositoryJPA.existsById(id)){
-              throw new EntityNotFoundException("Pessoa não encontrada com id: " + id);
+              throw new HandlerNotFoundException("Pessoa não encontrada com id: " + id);
         } 
 
         return pessoaRepositoryJPA.save(pessoa);
@@ -47,7 +45,7 @@ public class PessoaRepository implements IPessoaRepository {
     public void deleteById(Long id) {
 
         if(!pessoaRepositoryJPA.existsById(id)){
-              throw new EntityNotFoundException("Pessoa não encontrada com id: " + id);
+              throw new HandlerNotFoundException("Pessoa não encontrada com id: " + id);
         }
         
         pessoaRepositoryJPA.deleteById(id);

@@ -8,6 +8,6 @@ public interface IPessoaRepository {
     Pessoa save(Pessoa pessoa);
     List<Pessoa> getAll();
     Pessoa getById(Long id);
-    Pessoa update(Long id, Pessoa pessoa);
+    Pessoa update(Pessoa pessoa);
     void deleteById(Long id);
 }

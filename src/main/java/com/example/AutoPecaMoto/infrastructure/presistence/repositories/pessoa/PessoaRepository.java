@@ -13,42 +13,41 @@ import lombok.RequiredArgsConstructor;
 @Repository
 public class PessoaRepository implements IPessoaRepository {
 
-    private final PessoaRepositoryJPA pessoaRepositoryJPA;
+    private final PessoaRepositoryJPA repositoryJPA;
     @Override
     public Pessoa save(Pessoa pessoa) {
-         return pessoaRepositoryJPA.save(pessoa);
+         return repositoryJPA.save(pessoa);
     }
 
     @Override
     public List<Pessoa> getAll() {
-        return pessoaRepositoryJPA.findAll();
+        return repositoryJPA.findAll();
     }
 
     @Override
     public Pessoa getById(Long id) {
-       return pessoaRepositoryJPA.findById(id)
+       return repositoryJPA.findById(id)
                 .orElseThrow(() -> new HandlerNotFoundException(String.format("Cliente id = %s não encontrado no sistema", id)));
  
     }
 
     @Override
-    public Pessoa update(Long id, Pessoa pessoa) {
-        
-       if(!pessoaRepositoryJPA.existsById(id)){
-              throw new HandlerNotFoundException("Pessoa não encontrada com id: " + id);
-        } 
-
-        return pessoaRepositoryJPA.save(pessoa);
+    public Pessoa update(Pessoa pessoa) { 
+        return repositoryJPA.save(pessoa);
     }
 
     @Override
     public void deleteById(Long id) {
 
-        if(!pessoaRepositoryJPA.existsById(id)){
+        if(!repositoryJPA.existsById(id)){
               throw new HandlerNotFoundException("Pessoa não encontrada com id: " + id);
         }
         
-        pessoaRepositoryJPA.deleteById(id);
+        repositoryJPA.deleteById(id);
+    }
+
+    public boolean existsById(Long id){
+        return repositoryJPA.existsById(id);
     }
     
 }

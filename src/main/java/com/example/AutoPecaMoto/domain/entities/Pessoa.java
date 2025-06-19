@@ -31,7 +31,7 @@ public class Pessoa {
     @Column(nullable = false) 
 	private LocalDate data_cadastro;
 
-    @Column(nullable = false, length = 250)
+    @Column(nullable = false, unique = true, length = 250)
 	private String email ;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)

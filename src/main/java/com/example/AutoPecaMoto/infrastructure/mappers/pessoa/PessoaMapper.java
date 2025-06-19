@@ -102,4 +102,23 @@ public class PessoaMapper {
                     .build())
                 .collect(Collectors.toList()) ;
     }
+
+    public static List<PessoaResponseDTO> toPessoaResponseListDTO(List<Pessoa> pessoas){
+
+        if(pessoas == null)
+            return null;
+
+        return pessoas.stream()
+                .map(pessoa -> PessoaResponseDTO.builder()
+                .id(pessoa.getId())
+                .nome(pessoa.getNome())
+                .cpf(pessoa.getCpf())
+                .tipo(pessoa.getTipo())
+                .data_cadastro(pessoa.getData_cadastro())
+                .email(pessoa.getEmail())
+                .endereco(toEnderecoDTO(pessoa.getEndereco()))
+                .telefones(toTelefoneDTOList(pessoa.getTelefones()))
+                .build())
+            .collect(Collectors.toList());
+    }
 }

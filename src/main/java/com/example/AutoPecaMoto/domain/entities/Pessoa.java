@@ -1,8 +1,7 @@
 package com.example.AutoPecaMoto.domain.entities;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigDecimal;
+import java.time.LocalDate; 
 
 import jakarta.persistence.*; 
 import lombok.*;
@@ -26,7 +25,7 @@ public class Pessoa {
 	private String cpf ;
 
     @Column(nullable = false, length = 20)
-	private String tipo;
+	private String tipo_pessoa;
 
     @Column(nullable = false) 
 	private LocalDate data_cadastro;
@@ -34,15 +33,40 @@ public class Pessoa {
     @Column(nullable = false,  length = 250)
 	private String email ;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "endereco_id", referencedColumnName = "id")
-    private Endereco endereco;
+    @Column(nullable = true, length = 250)
+    private String logradouro;
 
-    @OneToMany(cascade= CascadeType.ALL, orphanRemoval = true)
-    private List<Telefone> telefones = new ArrayList<>();
-    
-    public void addTelefone(Telefone telefone){
-        telefones.add(telefone);
-        telefone.setPessoa(this);
-    } 
+    @Column(nullable = true, length = 20)
+    private String numero;
+
+    @Column(nullable = true, length = 100)
+    private String complemento;
+
+    @Column(nullable = true, length = 100)
+    private String bairro ;
+
+    @Column(nullable = true, length = 100)
+    private String cidade ;
+
+    @Column(nullable = true, length = 2)
+    private String estado ;
+
+    @Column(nullable = true, length = 10)
+    private String cep ; 
+
+    @Column(nullable = true, length = 20)
+    private String numero_telefone; 
+
+    @Column(nullable = true, length = 2)
+    private String ddd;
+
+    @Column(nullable = true, length = 25)
+    private String cargo ;
+
+    @Column(nullable = true, precision = 10, scale = 2)
+    private BigDecimal salario;
+
+    @Column(nullable = true, length = 2)
+    private LocalDate data_contratacao;
+   
 }

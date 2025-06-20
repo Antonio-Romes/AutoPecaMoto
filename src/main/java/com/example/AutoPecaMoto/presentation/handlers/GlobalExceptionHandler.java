@@ -9,6 +9,8 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import com.example.AutoPecaMoto.domain.exeptions.CpfUniqueViolationExecption;
+import com.example.AutoPecaMoto.domain.exeptions.EmailUniqueViolationExecption;
 import com.example.AutoPecaMoto.domain.exeptions.HandlerNotFoundException;
  
 import jakarta.servlet.http.HttpServletRequest;
@@ -38,18 +40,28 @@ public class GlobalExceptionHandler {
                         .body(new ErrorMessage(request, HttpStatus.NOT_FOUND, ex.getMessage())); 
         }
 
-        @ExceptionHandler(Exception.class)
-         public ResponseEntity<ErrorMessage> internalServerErrorException(Exception ex, HttpServletRequest request){
-        ErrorMessage error = new ErrorMessage(
-        request, HttpStatus.INTERNAL_SERVER_ERROR, HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase()
-        );
-
-        log.error("Internal Server Error {} {}",error, ex.getMessage());// Consegue ver no console onde ocorreu o erro
-        return ResponseEntity
-                .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .contentType(MediaType.APPLICATION_JSON)
-                .body(error);
+        @ExceptionHandler({CpfUniqueViolationExecption.class, EmailUniqueViolationExecption.class})
+        public ResponseEntity<ErrorMessage> dataIntegrityViolationException(RuntimeException ex, HttpServletRequest request){
+        
+                log.error("Api Error - ", ex);
+                return ResponseEntity
+                        .status(HttpStatus.CONFLICT) 
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(new ErrorMessage(request, HttpStatus.CONFLICT, ex.getMessage())); 
         }
+
+        // @ExceptionHandler(Exception.class)
+        // public ResponseEntity<ErrorMessage> internalServerErrorException(Exception ex, HttpServletRequest request){
+        // ErrorMessage error = new ErrorMessage(
+        // request, HttpStatus.INTERNAL_SERVER_ERROR, HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase()
+        // );
+
+        // log.error("Internal Server Error {} {}",error, ex.getMessage());// Consegue ver no console onde ocorreu o erro
+        // return ResponseEntity
+        //         .status(HttpStatus.INTERNAL_SERVER_ERROR)
+        //         .contentType(MediaType.APPLICATION_JSON)
+        //         .body(error);
+        // }
 
          
 }

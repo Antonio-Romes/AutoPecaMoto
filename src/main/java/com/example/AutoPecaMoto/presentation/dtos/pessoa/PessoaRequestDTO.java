@@ -12,8 +12,11 @@ import lombok.*;
 public class PessoaRequestDTO {
      
 
-    @NotBlank(message = "Informe o campo nome.")
-    private String nome ;
+    @NotBlank(message = "Informe o campo nome completo.")
+    private String nome_completo ;
+
+    @NotBlank(message = "Informe o campo apelido.")
+    private String apelido ;
 
     @NotBlank(message = "Informe o campo cpf.")
 	private String cpf ;

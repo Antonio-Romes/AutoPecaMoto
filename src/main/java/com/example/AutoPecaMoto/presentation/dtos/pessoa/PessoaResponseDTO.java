@@ -11,7 +11,8 @@ import lombok.*;
 public class PessoaResponseDTO {
 
      private Long id;  
-    private String nome ; 
+    private String nome_completo ; 
+    private String apelido ; 
 	private String cpf ; 
 	private String tipo_pessoa; 
     LocalDate data_cadastro; 

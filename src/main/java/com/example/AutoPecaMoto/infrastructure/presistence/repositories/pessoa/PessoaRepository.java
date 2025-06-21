@@ -3,9 +3,7 @@ package com.example.AutoPecaMoto.infrastructure.presistence.repositories.pessoa;
 import java.util.List; 
 import org.springframework.stereotype.Repository; 
 
-import com.example.AutoPecaMoto.domain.entities.Pessoa;
-import com.example.AutoPecaMoto.domain.exeptions.CpfUniqueViolationExecption;
-import com.example.AutoPecaMoto.domain.exeptions.EmailUniqueViolationExecption;
+import com.example.AutoPecaMoto.domain.entities.Pessoa; 
 import com.example.AutoPecaMoto.domain.exeptions.HandlerNotFoundException;
 import com.example.AutoPecaMoto.domain.repositories.pessoa.IPessoaRepository; 
 import lombok.RequiredArgsConstructor;

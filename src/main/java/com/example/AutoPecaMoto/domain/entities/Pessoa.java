@@ -19,7 +19,10 @@ public class Pessoa {
     private Long id;
 
     @Column(nullable = false, length = 250)
-    private String nome ;
+    private String nome_completo ;
+
+    @Column(nullable = false, length = 20)
+    private String apelido ;
 
     @Column(nullable = false, unique = true, length = 14)
 	private String cpf ;

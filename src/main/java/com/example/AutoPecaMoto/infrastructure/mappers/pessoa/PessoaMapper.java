@@ -14,7 +14,8 @@ public class PessoaMapper {
             return null;
 
         Pessoa pessoa = Pessoa.builder() 
-                    .nome(dto.getNome())
+                    .nome_completo(dto.getNome_completo())
+                    .apelido(dto.getApelido())
                     .cpf(dto.getCpf())
                     .tipo_pessoa(dto.getTipo_pessoa())
                     .data_cadastro(dto.getData_cadastro())
@@ -42,7 +43,8 @@ public class PessoaMapper {
         
             return PessoaResponseDTO.builder()
                     .id(pessoa.getId())
-                    .nome(pessoa.getNome())
+                    .nome_completo(pessoa.getNome_completo())
+                    .apelido(pessoa.getApelido())
                     .cpf(pessoa.getCpf())
                     .tipo_pessoa(pessoa.getTipo_pessoa())
                     .data_cadastro(pessoa.getData_cadastro())
@@ -72,7 +74,8 @@ public class PessoaMapper {
         return pessoas.stream()
                 .map(pessoa -> PessoaResponseDTO.builder()
                     .id(pessoa.getId())
-                    .nome(pessoa.getNome())
+                    .nome_completo(pessoa.getNome_completo())
+                    .apelido(pessoa.getApelido())
                     .cpf(pessoa.getCpf())
                     .tipo_pessoa(pessoa.getTipo_pessoa())
                     .data_cadastro(pessoa.getData_cadastro())

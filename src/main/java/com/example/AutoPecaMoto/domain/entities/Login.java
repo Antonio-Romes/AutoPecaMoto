@@ -32,9 +32,7 @@ public class Login {
     private String senha ;
 
     @Column(nullable = false)
-    private boolean ativo ;
+    private boolean isAtivo ;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "id_pessoa", referencedColumnName = "id", nullable = false)
-    private Pessoa pessoa;
+    
 }

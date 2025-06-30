@@ -42,7 +42,7 @@ public class Pessoa {
     @Column(nullable = true, length = 20)
     private String numero;
 
-    @Column(nullable = true, length = 100)
+    @Column(nullable = false, length = 100)
     private String complemento;
 
     @Column(nullable = true, length = 100)
@@ -63,13 +63,13 @@ public class Pessoa {
     @Column(nullable = true, length = 2)
     private String ddd;
 
-    @Column(nullable = true, length = 25)
+    @Column(nullable = false, length = 25)
     private String cargo ;
 
-    @Column(nullable = true, precision = 10, scale = 2)
+    @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal salario;
 
-    @Column(nullable = true, length = 2)
+    @Column(nullable = false)
     private LocalDate data_contratacao;
    
 }

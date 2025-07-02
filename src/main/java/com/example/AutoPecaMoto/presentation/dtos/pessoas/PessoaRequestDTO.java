@@ -1,16 +1,11 @@
 package com.example.AutoPecaMoto.presentation.dtos.pessoas;
 
-import java.time.LocalDate;
-import java.util.List;
+import java.math.BigDecimal;
+import java.time.LocalDate; 
 
 import org.hibernate.validator.constraints.br.CPF;
-
-import com.example.AutoPecaMoto.domain.entities.Endereco;
-import com.example.AutoPecaMoto.domain.entities.Telefone;
-
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+ 
+import jakarta.validation.constraints.*; 
 import lombok.*;
 
 @Data 
@@ -36,8 +31,21 @@ public class PessoaRequestDTO {
     @NotBlank(message = "O informe o campo email.")
     @Email(message = "Formato do e-mail está invalido!", regexp = "^[a-z0-9.+-]+@[a-z0-9.-]+\\.[a-z]{2,}$")
 	private String email;
+    
+     
+    @NotBlank(message = "O informe o campo logradouro.") 
+    private String logradouro;
 
-    private Endereco enderecos;
-
-    private List<Telefone> telefones;
+    @NotBlank(message = "O informe o campo numero.") 
+    private String numero; 
+    private String complemento; 
+    private String bairro; 
+    private String cidade; 
+    private String estado; 
+    private String cep; 
+    private String numero_telefone; 
+    private String ddd; 
+    private String cargo; 
+    private BigDecimal salario;    
+    private LocalDate data_Contratacao;
 }

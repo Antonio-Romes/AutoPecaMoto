@@ -22,7 +22,7 @@ public class Pessoa {
     @Column(name = "nome", nullable = false, length = 100)
     private String nome;
 
-    @Column(name = "cpf", nullable = false, unique = true, length = 11)
+    @Column(name = "cpf", nullable = false, unique = true, length = 14)
     private String cpf;
 
     @Column(name = "tipo_pessoa", nullable = false, length = 20)
@@ -52,7 +52,7 @@ public class Pessoa {
     @Column(name = "estado",  length = 2)
     private String estado;
 
-    @Column(name = "cep",  length = 8)
+    @Column(name = "cep",  length = 10)
     private String cep;
 
     @Column(name = "numero_telefone", length = 9)

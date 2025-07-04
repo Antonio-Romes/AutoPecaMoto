@@ -24,7 +24,7 @@ public class PessoaController {
 
     private final CreatePessoaUseCase createPessoaUseCase;
     
-    @PostMapping()
+    @PostMapping
     public ResponseEntity<PessoaResponseDTO> postMethodName(@RequestBody PessoaRequestDTO dto) { 
         Pessoa pessoa = createPessoaUseCase.insert(PessoaMapper.toPessoa(dto)); 
         return ResponseEntity.status(HttpStatus.CREATED).body(PessoaMapper.toPessoaResponseDTO(pessoa));

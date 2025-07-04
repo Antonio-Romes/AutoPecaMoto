@@ -15,7 +15,7 @@ public class PessoaResponseDTO {
     private Long id;  
   	private String nome ; 
 	private String cpf ; 
-	private String tipo;
+	private String tipo_pessoa;
 	private LocalDate data_cadastro ; 
 	private String email; 
     private String logradouro; 

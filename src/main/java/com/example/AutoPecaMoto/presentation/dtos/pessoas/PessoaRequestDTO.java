@@ -25,7 +25,7 @@ public class PessoaRequestDTO {
 	private String cpf ;
 
     @NotBlank(message = "O informe o campo tipo.")
-	private String tipo;
+	private String tipo_pessoa;
 	private LocalDate data_cadastro ;
 
     @NotBlank(message = "O informe o campo email.")

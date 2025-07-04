@@ -11,10 +11,13 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Repository
-public class PessoaRepository implements IPessoaRepository {@Override
+public class PessoaRepository implements IPessoaRepository {
+    
+    private final PessoaRepositoryJPA repository;
+
+    @Override
     public Pessoa save(Pessoa pessoa) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
+        return repository.save(pessoa);
     }
 
     @Override

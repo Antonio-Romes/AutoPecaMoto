@@ -2,6 +2,9 @@ package com.example.AutoPecaMoto.infrastructure.presistence.repositories.pessoa;
 
 import java.util.List;
 
+import javax.naming.NameNotFoundException;
+
+import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.stereotype.Repository;
 
 import com.example.AutoPecaMoto.domain.entities.Pessoa;
@@ -22,14 +25,13 @@ public class PessoaRepository implements IPessoaRepository {
 
     @Override
     public List<Pessoa> getAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAll'");
+        return repository.findAll();
     }
 
     @Override
     public Pessoa getById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getById'");
+        
+       throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
 
     @Override

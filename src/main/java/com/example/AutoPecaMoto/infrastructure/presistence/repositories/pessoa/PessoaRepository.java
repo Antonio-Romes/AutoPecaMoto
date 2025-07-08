@@ -30,7 +30,7 @@ public class PessoaRepository implements IPessoaRepository {
     public Pessoa getById(Long id) {
         
        return repository.findById(id).orElseThrow(
-        () -> new EntityNotFoundException(String.format("Pessoa com id = %d não encontrado."))
+        () -> new EntityNotFoundException(String.format("Pessoa com id = %d não encontrado.",id))
        );
     }
 
@@ -38,7 +38,7 @@ public class PessoaRepository implements IPessoaRepository {
     public Pessoa update(Long id, Pessoa pessoa) {
         
        Pessoa pessoaSalve =  repository.findById(id).orElseThrow(
-        () -> new EntityNotFoundException(String.format("Pessoa com id = %d não encontrado."))
+        () -> new EntityNotFoundException(String.format("Pessoa com id = %d não encontrado.", id))
        );
 
         pessoaSalve.setNome(pessoa.getNome());

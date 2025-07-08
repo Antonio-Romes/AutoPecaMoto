@@ -55,7 +55,7 @@ public class Pessoa {
     @Column(name = "cep",  length = 10)
     private String cep;
 
-    @Column(name = "numero_telefone", length = 9)
+    @Column(name = "numero_telefone", length = 10)
     private String numero_telefone;
 
     @Column(name = "ddd", length = 2)
